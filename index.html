@@ -7,6 +7,7 @@
     <title>Auto Slider</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <!--image slider start-->
     <div class="slider">
@@ -53,16 +54,18 @@
     <script type="text/javascript">
       let counter = 1;
 
-      setInterval(function () {
-        let couterItem = document.getElementById("radio" + counter);
+      function slideImage() {
+        let couterItem = document.getElementById(`radio${counter}`);
 
-        couterItem.checked = true;
-        counter++;
+        if (couterItem) {
+          couterItem.checked = true;
+          counter = (counter % 4) + 1;
 
-        if (counter > 4) {
-          counter = 1;
+          setTimeout(slideImage, 5000);
         }
-      }, 5000);
+      }
+
+      window.addEventListener("load", slideImage);
     </script>
   </body>
 </html>
