@@ -51,11 +51,14 @@
     <!--image slider end-->
 
     <script type="text/javascript">
-      var counter = 1;
+      let counter = 1;
+
       setInterval(function () {
         let couterItem = document.getElementById("radio" + counter);
+
         couterItem.checked = true;
         counter++;
+
         if (counter > 4) {
           counter = 1;
         }
